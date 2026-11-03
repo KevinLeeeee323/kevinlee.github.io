@@ -3,62 +3,203 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
     <title>Zhicheng Li (李智成) | Kevin Lee</title>
     <meta name="author" content="Zhicheng Li">
-    <meta name="description" content="Personal homepage and contact information of Zhicheng Li (李智成), also known as Kevin Lee.">
+    <meta name="description" content="Personal homepage of Zhicheng Li (李智成), also known as Kevin Lee. Research interest: Embodied Intelligence.">
     <style>
+      :root {
+        color-scheme: light dark;
+        font: 100%/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        font-optical-sizing: auto;
+        --background: #f5f5f7;
+        --surface: #fff;
+        --text: #1d1d1f;
+        --secondary: #65656b;
+        --line: #e8e8ed;
+        --accent: #0066cc;
+        --accent-soft: #eef5fc;
+        --pill: #f5f5f7;
+        --shadow: 0 12px 48px rgb(0 0 0 / 3%);
+      }
       * { box-sizing: border-box; }
       body {
         margin: 0;
-        min-height: 100vh;
+        min-height: 100svh;
+        padding: clamp(1.25rem, 6vw, 5rem) 1.25rem;
         display: grid;
-        place-items: center;
-        padding: 48px 24px;
-        background: #faf9f6;
-        color: #242b30;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        align-items: center;
+        background: var(--background);
+        color: var(--text);
         -webkit-font-smoothing: antialiased;
       }
       main {
-        display: flex;
-        align-items: center;
-        gap: 48px;
         width: 100%;
-        max-width: 720px;
-        padding: 48px 0;
-        border-top: 1px solid #dcded9;
-        border-bottom: 1px solid #dcded9;
+        max-width: 60rem;
+        margin: 0 auto;
+        padding: clamp(1.5rem, 5vw, 3.75rem);
+        display: grid;
+        grid-template-columns: 14rem minmax(0, 1fr);
+        grid-template-areas: "portrait identity" "portrait research" "portrait hobbies";
+        column-gap: clamp(2rem, 5vw, 4.5rem);
+        row-gap: 2rem;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 2rem;
+        box-shadow: var(--shadow);
       }
-      img {
-        width: 200px;
-        height: 200px;
-        flex-shrink: 0;
+      header { grid-area: identity; }
+      h1, h2, p { margin: 0; }
+      h1 {
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 650;
+        line-height: 1.12;
+        letter-spacing: -0.04em;
+      }
+      .chinese-name {
+        display: block;
+        margin-top: 0.65rem;
+        font-size: 1.5rem;
+        font-weight: 450;
+        line-height: 1.4;
+        letter-spacing: 0.08em;
+      }
+      .english-name { margin-top: 0.6rem; color: var(--secondary); font-size: 1.125rem; }
+      .contact { margin-top: 1.75rem; }
+      .section-title {
+        font-size: 0.75rem;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: var(--secondary);
+      }
+      ul { margin: 0; padding: 0; list-style: none; }
+      .emails { margin-top: 0.65rem; font-size: 0.875rem; line-height: 1.8; overflow-wrap: anywhere; }
+      .emails li + li { margin-top: 0.25rem; }
+      .email-symbol { color: var(--secondary); font-size: 0.8em; letter-spacing: 0.025em; }
+      .portrait-column { grid-area: portrait; min-width: 0; }
+      .portrait-frame {
+        width: 100%;
+        aspect-ratio: 4 / 5;
+        overflow: hidden;
+        border-radius: 1.25rem;
+        background: var(--pill);
+      }
+      .portrait {
+        display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        border-radius: 50%;
+        object-position: 43% 45%;
+        transform: scale(1.6);
+        transform-origin: 40% 43%;
       }
-      h1 { margin: 0; font-size: clamp(28px, 4vw, 36px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.3; }
-      h1 span { display: block; margin-top: 8px; font-size: 24px; font-weight: 400; letter-spacing: 0.04em; }
-      .english-name { margin: 20px 0 28px; color: #626b70; font-size: 20px; }
-      main > div { min-width: 0; }
-      .emails { margin: 0; padding: 0; list-style: none; color: #286459; font-size: 16px; line-height: 1.7; overflow-wrap: anywhere; }
-      .emails li + li { margin-top: 8px; }
-      @media (max-width: 600px) {
-        main { flex-direction: column; gap: 32px; text-align: center; padding: 36px 0; }
-        img { width: 168px; height: 168px; }
+      .about { margin-top: 1.75rem; }
+      .bio-text { margin-top: 0.75rem; color: var(--secondary); font-size: 0.9375rem; line-height: 1.8; overflow-wrap: anywhere; }
+      .bio-text p + p { margin-top: 0.85em; }
+      .research { grid-area: research; }
+      .hobbies { grid-area: hobbies; }
+      .detail-section { padding-top: 1.75rem; border-top: 1px solid var(--line); min-width: 0; }
+      .research-topic {
+        display: inline-block;
+        margin-top: 0.875rem;
+        padding: 0.5rem 0.875rem;
+        border-radius: 0.75rem;
+        background: var(--accent-soft);
+        color: var(--accent);
+        font-size: 1.0625rem;
+        font-weight: 550;
+        letter-spacing: -0.015em;
+      }
+      .hobby-list { display: flex; flex-wrap: wrap; gap: 0.625rem; margin-top: 0.875rem; }
+      .hobby-list li {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.75rem;
+        background: var(--pill);
+        font-size: 0.875rem;
+        line-height: 1.5;
+      }
+      .emoji { font-size: 1rem; line-height: 1; }
+      @media (max-width: 700px) {
+        main {
+          max-width: 32rem;
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-areas: "identity" "portrait" "research" "hobbies";
+          border-radius: 1.5rem;
+        }
+        .portrait-frame { max-width: 12rem; border-radius: 1rem; }
+        .about { margin-top: 1.25rem; }
+        .bio-text { margin-top: 0.5rem; }
+      }
+      @media (max-width: 380px) {
+        .portrait-frame { max-width: 10rem; }
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --background: #111113;
+          --surface: #1c1c1e;
+          --text: #f5f5f7;
+          --secondary: #aaaab1;
+          --line: #353538;
+          --accent: #8bc2ff;
+          --accent-soft: #202e40;
+          --pill: #2b2b2e;
+          --shadow: none;
+        }
+      }
+      @media (prefers-contrast: more) {
+        :root { --secondary: #424245; --line: #76767b; }
+      }
+      @media (prefers-color-scheme: dark) and (prefers-contrast: more) {
+        :root { --secondary: #d1d1d6; --line: #9b9ba0; }
       }
     </style>
   </head>
   <body>
     <main aria-label="Personal profile">
-      <img src="images/KevinLee.jpeg" alt="Portrait of Zhicheng Li (Kevin Lee)" width="200" height="200">
-      <div>
-        <h1>Zhicheng Li <span lang="zh-Hans">李智成</span></h1>
+      <header>
+        <h1>Zhicheng Li <span class="chinese-name" lang="zh-Hans">李智成</span></h1>
         <p class="english-name">Kevin Lee</p>
-        <ul class="emails" aria-label="Email addresses (replace AT with @ and DOT with a period)">
-          <li>23373285 AT buaa DOT edu DOT cn</li>
-          <li>lizhicheng2005 AT icloud DOT com</li>
-        </ul>
+        <section class="contact" aria-labelledby="contact-heading">
+          <h2 class="section-title" id="contact-heading">Contact</h2>
+          <ul class="emails" aria-label="Email addresses (replace AT with @ and DOT with a period)">
+            <li>23373285 <span class="email-symbol">AT</span> buaa <span class="email-symbol">DOT</span> edu <span class="email-symbol">DOT</span> cn</li>
+            <li>lizhicheng2005 <span class="email-symbol">AT</span> icloud <span class="email-symbol">DOT</span> com</li>
+          </ul>
+        </section>
+      </header>
+
+      <div class="portrait-column">
+        <div class="portrait-frame">
+          <img class="portrait" src="images/KevinLee.jpeg" alt="Portrait of Zhicheng Li (Kevin Lee)" width="224" height="280">
+        </div>
+        <section class="about" aria-labelledby="about-heading">
+          <h2 class="section-title" id="about-heading">About me</h2>
+          <!-- Replace the paragraph below with your introduction. Add more <p> elements inside this div if needed. -->
+          <div class="bio-text" id="personal-introduction">
+            <p>A brief introduction, coming soon.</p>
+          </div>
+        </section>
       </div>
+
+      <section class="detail-section research" aria-labelledby="research-heading">
+        <h2 class="section-title" id="research-heading">Research Interest</h2>
+        <p class="research-topic">Embodied Intelligence</p>
+      </section>
+
+      <section class="detail-section hobbies" aria-labelledby="hobbies-heading">
+        <h2 class="section-title" id="hobbies-heading">Hobbies</h2>
+        <ul class="hobby-list">
+          <li><span class="emoji" aria-hidden="true">🏸</span>Badminton</li>
+          <li><span class="emoji" aria-hidden="true">🎵</span>Music</li>
+          <li><span class="emoji" aria-hidden="true">📚</span>Novels</li>
+          <li><span class="emoji" aria-hidden="true">✈️</span>Travelling</li>
+        </ul>
+      </section>
     </main>
   </body>
 </html>

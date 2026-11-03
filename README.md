@@ -1,1 +1,27 @@
-This is the source code to Jon Barron's public academic website: https://jonbarron.info/. Feel free to clone this code for your own personal use.
+# Zhicheng Li · Kevin Lee
+
+Personal homepage of Zhicheng Li (李智成), also known as Kevin Lee.
+
+- Academic email: 23373285 AT buaa DOT edu DOT cn
+- Personal email: lizhicheng2005 AT icloud DOT com
+- Homepage: `index.html`
+- Photo: `images/KevinLee.jpeg`
+
+This is a static website with no build step or external dependencies.
+Email addresses use AT and DOT in place of the usual symbols to discourage
+simple email scrapers; there are no `mailto:` links or full addresses in metadata.
+
+## GitHub Pages
+
+Push the changes to GitHub. In the repository, open **Settings → Pages**,
+choose **Deploy from a branch**, then select **master** and **/ (root)**.
+Use the public URL shown by GitHub Pages after deployment.
+If **Custom domain** still contains `jonbarron.info`, clear it in Pages settings.
+
+The current repository is `KevinLeeeee323/kevinlee.github.io`, so its default
+project URL is https://KevinLeeeee323.github.io/kevinlee.github.io/ .
+For a root-level personal homepage, rename the repository to
+`KevinLeeeee323.github.io`; its URL will then be https://KevinLeeeee323.github.io/ .
+
+Original template assets are retained for later cleanup and are not linked from
+the personal homepage.
